@@ -7,6 +7,7 @@ from fastapi import FastAPI, Depends, HTTPException, Header
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 import io
+import os
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 from pydantic import BaseModel
@@ -34,7 +35,11 @@ app = FastAPI(title="AI Audit Trail POC")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:5174"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "https://legalbotpoc.netlify.app",
+    ] + ([os.getenv("CORS_ORIGIN")] if os.getenv("CORS_ORIGIN") else []),
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
