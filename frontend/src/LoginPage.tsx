@@ -20,6 +20,10 @@ import {
   UsersRound
 } from 'lucide-react'
 import { useAuth } from './AuthContext'
+<<<<<<< HEAD
+=======
+import { API_BASE_URL } from './api'
+>>>>>>> main
 
 type Mode = 'login' | 'register'
 
@@ -148,7 +152,11 @@ export function LoginPage() {
     setSuccess('')
     try {
       if (mode === 'register') {
+<<<<<<< HEAD
         const res = await fetch('http://localhost:8000/api/auth/register', {
+=======
+        const res = await fetch(`${API_BASE_URL}/api/auth/register`, {
+>>>>>>> main
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: email.trim().toLowerCase(), password, display_name: displayName, role }),
@@ -159,7 +167,11 @@ export function LoginPage() {
         setSuccess('Workspace initialized. Please authenticate.')
         return
       }
+<<<<<<< HEAD
       const res = await fetch('http://localhost:8000/api/auth/login', {
+=======
+      const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
+>>>>>>> main
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: email.trim().toLowerCase(), password }),

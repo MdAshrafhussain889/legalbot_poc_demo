@@ -1,5 +1,9 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useAuth } from './AuthContext'
+<<<<<<< HEAD
+=======
+import { API_BASE_URL } from './api'
+>>>>>>> main
 import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Database, Search, RefreshCw, ShieldAlert, Download } from 'lucide-react'
 
 type AuditEntry = {
@@ -68,7 +72,11 @@ export function DatabaseViewer() {
         sort_dir: sortDir,
       })
       if (search) params.append('search', search)
+<<<<<<< HEAD
       const response = await fetch(`http://localhost:8000/api/db/audit-log-entries?${params}`, {
+=======
+      const response = await fetch(`${API_BASE_URL}/api/db/audit-log-entries?${params}`, {
+>>>>>>> main
         headers: { Authorization: `Bearer ${token}` },
       })
       if (!response.ok) throw new Error('Failed to load data')

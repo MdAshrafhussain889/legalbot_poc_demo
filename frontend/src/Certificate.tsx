@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { ArrowLeft, Loader2, ShieldAlert } from 'lucide-react'
 import { useAuth } from './AuthContext'
+<<<<<<< HEAD
+=======
+import { API_BASE_URL } from './api'
+>>>>>>> main
 
 type AuditEntry = {
   id: number
@@ -43,7 +47,11 @@ export function Certificate() {
       setError('')
       try {
         const response = await fetch(
+<<<<<<< HEAD
           `http://localhost:8000/api/audit-logs/${response_id}`,
+=======
+          `${API_BASE_URL}/api/audit-logs/${response_id}`,
+>>>>>>> main
           { headers: { Authorization: `Bearer ${token}` } }
         )
         if (!response.ok) throw new Error('Entry not found')
