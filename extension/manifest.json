@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "AI Audit Trail - Shadow Detector",
+  "version": "0.1.0",
+  "description": "Detects and logs shadow AI usage (ChatGPT, Copilot, etc.)",
+  "permissions": ["tabs", "storage"],
+  "host_permissions": [
+    "http://localhost:8000/*",
+    "*://chatgpt.com/*",
+    "*://chat.openai.com/*",
+    "*://copilot.microsoft.com/*",
+    "*://github.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "AI Audit Trail",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
